@@ -1,7 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 int N, M, D, S, p[1000], m[1000], t[1000], sickP[50], sickD[50];
-int possible[1000];
+int possible[50];
+
+bool hasNoValue(int arr[], int size, int val) {
+    for (int i  = 0; i < size; i++) {
+        if (arr[i] == val) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int main() {
     ifstream fin("badmilk.in");
@@ -21,8 +30,10 @@ int main() {
     for (int i = 0; i < D; i++) {
         for (int j = 0; j < S; j++) {
             if (p[i] == sickP[j] && t[i] <= sickD[j]) {
-                possible[k] = m[i];
-                k++;
+                if (hasNoValue(possible, 50, m[i])) {
+                    possible[k] = m[i];
+                    k++;
+                }
             }
         }
     }
