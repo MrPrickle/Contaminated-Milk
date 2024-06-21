@@ -30,7 +30,7 @@ int main() {
     int maxCount, count = 0;
     for (int i = 0; i < (sizeof(possible) / sizeof(possible[0])); i++) {
         for (int j = 0; j < D; j++) {
-            if (m[i] == possible[j]) {
+            if (m[j] == possible[i]) {
                 count++;
             }
         }
