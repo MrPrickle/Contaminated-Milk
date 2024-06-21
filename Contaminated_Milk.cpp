@@ -17,17 +17,18 @@ int main() {
         fin >> sickP[i] >> sickD[i];
     }
 
-    int j = 0;
+    int k = 0;
     for (int i = 0; i < D; i++) {
         for (int j = 0; j < S; j++) {
             if (p[i] == sickP[j] && t[i] <= sickD[j]) {
-                possible[j] = m[i];
-                j++;
+                possible[k] = m[i];
+                k++;
             }
         }
     }
     
-    int maxCount, count = 0;
+    int maxCount = 0;
+    int count = 0;
     for (int i = 0; i < (sizeof(possible) / sizeof(possible[0])); i++) {
         for (int j = 0; j < D; j++) {
             if (m[j] == possible[i]) {
@@ -35,6 +36,7 @@ int main() {
             }
         }
         maxCount = max(maxCount, count);
+        count = 0;
     }
 
     fout << maxCount;
